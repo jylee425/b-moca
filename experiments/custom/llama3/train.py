@@ -124,7 +124,7 @@ def main(cfg):
         train_dataset=train_dataset,
         # eval_dataset=val_dataset,
         dataset_text_field="text",
-        max_seq_length=2**15,
+        max_seq_length=2**13,
         tokenizer=tokenizer,
         args=training_args,
         data_collator=data_collator,
