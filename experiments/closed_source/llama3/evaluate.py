@@ -110,7 +110,7 @@ def step(args, env,
     # predict action
     model_inputs = tokenizer([prompt], 
                             return_tensors="pt",
-                            max_length=2**15, # 32K
+                            max_length=2**13, # 8K
                             padding=True,
                             truncation=True,
                             ).to('cuda')
