@@ -181,6 +181,7 @@ During the experiments, our API (i.e., ```b_moca/environment/environment.py```) 
 
 Users can also configure own environments by modifying files in ```asset/environments```
 
+For the Tablet device (env 109), you may check the sanity of transitions (regarding the action parsing), by using ```asset/environments/env_109.ipynb```
 
 ## Experiments
 
