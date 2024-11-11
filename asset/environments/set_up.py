@@ -326,6 +326,8 @@ class EnvBuilder:
             self.set_wallpaper(device_id, row["wallpaper"])
 
             self.set_dpi(device_id, row["dpi"])
+
+            self.set_sound(device_id, sound=0)
             
             self.set_alarm(device_id) #TODO: move to init_app
 
