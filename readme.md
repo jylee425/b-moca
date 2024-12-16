@@ -126,8 +126,7 @@ npm install -g appium-doctor
 appium driver install uiautomator2
 
 # Set environment variable and check appium driver
-echo “export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64” >> ~/.bashrc 
-echo “export export ANDROID_SDK_ROOT=$HOME/.local/share/android/sdk” >> ~/.bashrc 
+echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> ~/.bashrc 
 source ~/.bashrc
 
 appium driver list --installed # uiautomator2 
