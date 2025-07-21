@@ -83,7 +83,7 @@ class GPTActionParsingWrapper(base_wrapper.BaseWrapper):
 
     def step(self, raw_action, elem_list, bbox_list):
         try:
-            if "dual-gesture" in raw_action:
+            if "dual-gesture(" in raw_action:
                 touch_y, touch_x, lift_y, lift_x = re.findall(
                     r"dual-gesture\((.*?)\)", raw_action
                 )[0].split(",")
@@ -95,7 +95,7 @@ class GPTActionParsingWrapper(base_wrapper.BaseWrapper):
                     f"dual-gesture({touch_y}, {touch_x}, {lift_y}, {lift_x})"
                 )
 
-            elif "tap" in raw_action:
+            elif "tap(" in raw_action:
                 area = int(re.findall(r"tap\((.*?)\)", raw_action)[0])
                 gesture_position = bbox_list[area]
 
@@ -112,13 +112,13 @@ class GPTActionParsingWrapper(base_wrapper.BaseWrapper):
                 )
                 parsed_action = f"tap({elem_list[area]})"
 
-            elif "swipe" in raw_action:
+            elif "swipe(" in raw_action:
                 scroll_direction = re.findall(r"swipe\((.*?)\)", raw_action)[0][1:-1]
 
                 final_action = np.array(_SCROLL_MAP[scroll_direction])
                 parsed_action = f"swipe({scroll_direction})"
 
-            elif "press" in raw_action:
+            elif "press(" in raw_action:
                 key = re.findall(r"press\((.*?)\)", raw_action)[0][1:-1]
 
                 if key == "BACK":
@@ -175,7 +175,7 @@ class GeminiActionParsingWrapper(base_wrapper.BaseWrapper):
 
     def step(self, raw_action, elem_list, bbox_list):
         try:
-            if "dual-gesture" in raw_action:
+            if "dual-gesture(" in raw_action:
                 touch_y, touch_x, lift_y, lift_x = re.findall(
                     r"dual-gesture\((.*?)\)", raw_action
                 )[0].split(",")
@@ -187,7 +187,7 @@ class GeminiActionParsingWrapper(base_wrapper.BaseWrapper):
                     f"dual-gesture({touch_y}, {touch_x}, {lift_y}, {lift_x})"
                 )
 
-            elif "tap" in raw_action:
+            elif "tap(" in raw_action:
                 area = int(re.findall(r"tap\((.*?)\)", raw_action)[0])
                 gesture_position = bbox_list[area]
 
@@ -204,13 +204,13 @@ class GeminiActionParsingWrapper(base_wrapper.BaseWrapper):
                 )
                 parsed_action = f"tap({elem_list[area]})"
 
-            elif "swipe" in raw_action:
+            elif "swipe(" in raw_action:
                 scroll_direction = re.findall(r"swipe\((.*?)\)", raw_action)[0][1:-1]
 
                 final_action = np.array(_SCROLL_MAP[scroll_direction])
                 parsed_action = f"swipe({scroll_direction})"
 
-            elif "press" in raw_action:
+            elif "press(" in raw_action:
                 key = re.findall(r"press\((.*?)\)", raw_action)[0][1:-1]
 
                 if key == "BACK":
@@ -266,7 +266,7 @@ class LlamaActionParsingWrapper(base_wrapper.BaseWrapper):
 
     def step(self, raw_action, elem_list, bbox_list):
         try:
-            if "dual-gesture" in raw_action:
+            if "dual-gesture(" in raw_action:
                 touch_y, touch_x, lift_y, lift_x = re.findall(
                     r"dual-gesture\((.*?)\)", raw_action
                 )[0].split(",")
@@ -278,7 +278,7 @@ class LlamaActionParsingWrapper(base_wrapper.BaseWrapper):
                     f"dual-gesture({touch_y}, {touch_x}, {lift_y}, {lift_x})"
                 )
 
-            elif "tap" in raw_action:
+            elif "tap(" in raw_action:
                 area = int(re.findall(r"tap\((.*?)\)", raw_action)[0])
                 gesture_position = bbox_list[area]
 
@@ -295,13 +295,13 @@ class LlamaActionParsingWrapper(base_wrapper.BaseWrapper):
                 )
                 parsed_action = f"tap({elem_list[area]})"
 
-            elif "swipe" in raw_action:
+            elif "swipe(" in raw_action:
                 scroll_direction = re.findall(r"swipe\((.*?)\)", raw_action)[0][1:-1]
 
                 final_action = np.array(_SCROLL_MAP[scroll_direction])
                 parsed_action = f"swipe({scroll_direction})"
 
-            elif "press" in raw_action:
+            elif "press(" in raw_action:
                 key = re.findall(r"press\((.*?)\)", raw_action)[0][1:-1]
 
                 if key == "BACK":
